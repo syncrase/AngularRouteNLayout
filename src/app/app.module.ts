@@ -1,18 +1,28 @@
+import './vendor.ts';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { CustomRoutingModule } from './app-routing.module';
+
+import { HomeModule } from './home/home.module';
+import { MainComponent, NavbarComponent, FooterComponent, ErrorComponent } from './layouts';
+import { SharedModule } from 'app/shared';
 
 @NgModule({
   declarations: [
-    AppComponent
+    MainComponent,
+    NavbarComponent,
+    ErrorComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    SharedModule.forRoot(),
+    CustomRoutingModule,
+    HomeModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [MainComponent]
 })
 export class AppModule { }

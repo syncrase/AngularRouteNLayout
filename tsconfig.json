@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "target/www/app",
     "sourceMap": true,
     "declaration": false,
     "module": "es2015",
@@ -14,6 +14,10 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "paths": {
+      // https://www.typescriptlang.org/docs/handbook/module-resolution.html
+      "app/*": ["src/app/*"]
+    },
     "lib": [
       "es2018",
       "dom"
