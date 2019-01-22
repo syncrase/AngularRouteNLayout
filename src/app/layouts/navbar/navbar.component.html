@@ -47,6 +47,17 @@
         </a>
       </li>
 
+
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="/admin" routerLinkActive="active">/admin</a>
+        <!-- <a class="nav-link" [routerLink]="[{ outlets: { primary: ['admin'] }}]" (click)="collapseNavbar()">
+          <span>
+            <fa-icon icon="home"></fa-icon>
+            <span>/admin</span>
+          </span>
+        </a> -->
+      </li>
+
     </ul>
 
   </div>
