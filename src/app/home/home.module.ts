@@ -7,8 +7,9 @@ import { HOME_ROUTE, HomeComponent } from './';
 @NgModule({
   declarations: [HomeComponent],
   imports: [
-    RouterModule.forChild([HOME_ROUTE])
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    RouterModule.forChild(HOME_ROUTE)
+  ]
+  // ,
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeModule { }

@@ -37,6 +37,16 @@ export const footable2Route: Routes = [
       pageTitle: 'Footable2'
     }
     // canActivate: [UserRouteAccessService]
+  },
+  {
+    path: 'test',
+    component: Footable2Component,
+    data: {
+      authorities: ['ROLE_USER'],
+      pageTitle: 'Footable2'
+    },
+    outlet: 'third'
+    // canActivate: [UserRouteAccessService]
   }
 ];
 

@@ -21,8 +21,8 @@ import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.inter
     HttpClientModule,
     SharedModule.forRoot(),
     CustomRoutingModule,
-    HomeModule,
-    EntityModule
+    EntityModule,
+    HomeModule
   ],
   declarations: [
     MainComponent,
