@@ -12,8 +12,8 @@ import {
     // faSortDown,
     // faSync,
     // faEye,
-    // faBan,
-    // faTimes,
+    faBan,
+    faTimes,
     // faArrowLeft,
     // faSave,
     // faPlus,
@@ -49,8 +49,8 @@ import {
 // library.add(faSortDown);
 // library.add(faSync);
 // library.add(faEye);
-// library.add(faBan);
-// library.add(faTimes);
+library.add(faBan);
+library.add(faTimes);
 // library.add(faArrowLeft);
 // library.add(faSave);
 // library.add(faPlus);

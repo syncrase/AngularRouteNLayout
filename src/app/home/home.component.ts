@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-// import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  // response: Observable<any>;
+  response: Observable<any>;
 
-  // private http: HttpClient
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
 
-  // request() {
-  //   const url = 'http://localhost:8080/bonjour';
-  //   this.response = this.http.get(url, { observe: 'body' });
-  // }
+  request() {
+    // const url = 'http://localhost:4200/bonjour';
+    // this.response = this.http.get(url, { observe: 'body' });
+    this.http.get('/bla').subscribe();
+  }
 
 }

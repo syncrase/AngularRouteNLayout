@@ -9,6 +9,7 @@ import { CustomRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { MainComponent, NavbarComponent, FooterComponent, ErrorComponent } from './layouts';
 import { SharedModule } from 'app/shared';
+import { EntityModule } from './entities/backend/entity.module';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
@@ -20,7 +21,8 @@ import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.inter
     HttpClientModule,
     SharedModule.forRoot(),
     CustomRoutingModule,
-    HomeModule
+    HomeModule,
+    EntityModule
   ],
   declarations: [
     MainComponent,

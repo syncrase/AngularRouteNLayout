@@ -19,13 +19,26 @@
         </a>
       </li>
 
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="/footable1" (click)="collapseNavbar()">
+          <span>
+            <fa-icon icon="home"></fa-icon>
+            <span>/footable1</span>
+          </span>
+        </a>
+      </li>
 
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="/footable2" (click)="collapseNavbar()">
+          <span>
+            <fa-icon icon="home"></fa-icon>
+            <span>/footable2</span>
+          </span>
+        </a>
+      </li>
 
     </ul>
 
-
-
   </div>
-
 
 </nav>
