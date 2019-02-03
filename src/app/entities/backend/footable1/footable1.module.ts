@@ -26,5 +26,7 @@ const ENTITY_STATES = [...footable1Route, ...footable1PopupRoute];
     Footable1Component
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  // ,
+  // bootstrap: [Footable1Component]
 })
 export class Footable1Module { }

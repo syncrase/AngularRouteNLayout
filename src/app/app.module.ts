@@ -10,9 +10,12 @@ import { MainComponent, NavbarComponent, FooterComponent, ErrorComponent } from 
 import { SharedModule } from 'app/shared';
 import { EntityModule } from './entities/backend/entity.module';
 import { AdminModule } from './admin/admin.module';
+import { ViewsModule } from './views/views.module';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
+// import { StoreModule } from '@ngrx/store';
+// import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   imports: [
@@ -22,7 +25,10 @@ import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.inter
     CustomRoutingModule,
     EntityModule,
     HomeModule,
-    AdminModule
+    AdminModule,
+    ViewsModule
+    // ,
+    // StoreModule.forRoot(reducers, { metaReducers })
   ],
   declarations: [
     MainComponent,
