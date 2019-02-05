@@ -4,6 +4,7 @@ import { StepSwitcherViewModule } from './step-switcher-view/step-switcher-view.
 import { MergeMapDemoModule } from './merge-map-demo/merge-map-demo.module';
 import { PriceSwitcherModule } from './price-switcher/price-switcher.module';
 import { ConcatMapDemoModule } from './concat-map-demo/concat-map-demo.module';
+import { MergeScanDemoModule } from './merge-scan-demo/merge-scan-demo.module';
 
 @NgModule({
   declarations: [],
@@ -12,7 +13,8 @@ import { ConcatMapDemoModule } from './concat-map-demo/concat-map-demo.module';
     StepSwitcherViewModule,
     MergeMapDemoModule,
     PriceSwitcherModule,
-    ConcatMapDemoModule
+    ConcatMapDemoModule,
+    MergeScanDemoModule
   ]
 })
 export class ViewsModule { }
