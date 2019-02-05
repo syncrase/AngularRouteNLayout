@@ -47,6 +47,37 @@
         </a>
       </li>
 
+      <li ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="rxjs-menu">
+            <span>
+              <fa-icon icon="th-list"></fa-icon>
+              <span>
+                RxJS demo
+              </span>
+            </span>
+          </a>
+          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="rxjs-menu">
+
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a class="dropdown-item" routerLink="/stepSwitcherView" (click)="collapseNavbar()">
+                <span>
+                  <fa-icon icon="home"></fa-icon>
+                  <span>/stepSwitcherView</span>
+                </span>
+              </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a class="dropdown-item" routerLink="/mergeMapDemo" (click)="collapseNavbar()">
+                <span>
+                  <fa-icon icon="home"></fa-icon>
+                  <span>/mergeMapDemo</span>
+                </span>
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
 
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a class="nav-link" routerLink="/admin" routerLinkActive="active">/admin</a>
@@ -59,14 +90,8 @@
       </li>
 
 
-      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a class="nav-link" routerLink="/stepSwitcherView" (click)="collapseNavbar()">
-          <span>
-            <fa-icon icon="home"></fa-icon>
-            <span>/stepSwitcherView</span>
-          </span>
-        </a>
-      </li>
+
+
 
     </ul>
 
