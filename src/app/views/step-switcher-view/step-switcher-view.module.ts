@@ -3,11 +3,10 @@ import { RouterModule } from '@angular/router';
 
 import { StoreModule } from '@ngrx/store';
 
-import { stepSwitcherViewRoute } from './step-switcher-view.route';
-import { StepSwitcherViewComponent } from './step-switcher-view.component';
+import { stepSwitcherViewRoute } from './';
+import { StepSwitcherViewComponent } from './';
 import { StepSwitcherComponent, CounterComponent } from './';
 import { stepSwitcherReducer } from './step-switcher/step-switcher.reducer';
-import { BrowserModule } from '@angular/platform-browser';
 
 const reducers = {
   stepValue: stepSwitcherReducer

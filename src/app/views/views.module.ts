@@ -3,14 +3,15 @@ import { CommonModule } from '@angular/common';
 import { RxjsModule } from './rxjs/rxjs.module';
 import { StepSwitcherViewModule } from './step-switcher-view/step-switcher-view.module';
 import { MergeMapDemoModule } from './merge-map-demo/merge-map-demo.module';
+import { PriceSwitcherModule } from './price-switcher/price-switcher.module';
 
 @NgModule({
   declarations: [],
   imports: [
-    // CommonModule
     RxjsModule,
     StepSwitcherViewModule,
-    MergeMapDemoModule
+    MergeMapDemoModule,
+    PriceSwitcherModule
   ]
 })
 export class ViewsModule { }
