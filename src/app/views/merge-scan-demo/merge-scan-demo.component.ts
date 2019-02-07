@@ -1,8 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { ajax } from 'rxjs/ajax';
-import { mergeScan } from 'rxjs/operators';
-import { fromEvent, EMPTY } from 'rxjs';
+import { mergeScan, repeat } from 'rxjs/operators';
+import { fromEvent, EMPTY, defer, concat } from 'rxjs';
 import { Subscription } from 'rxjs/internal/Subscription';
+
+const baseUrl = 'http://127.0.0.1:4001/list-data?page=';
 
 @Component({
     selector: 'app-merge-scan-demo',
@@ -13,14 +15,15 @@ export class MergeScanDemoComponent implements OnInit, OnDestroy {
     public items: number[] = [1, 2, 3, 4, 5];
     @ViewChild('moreButton') moreButton: ElementRef;
     public disableMoreButton = false;
-    private getItemsSubscription: Subscription;
+    private itemsSubscription: Subscription;
 
     constructor() {
     }
 
     ngOnInit() {
 
-        this.getItemsSubscription = this.getItems().subscribe((result: any) => {
+        // this.itemsSubscription = this.getItems().subscribe((result: any) => {
+        this.itemsSubscription = this.getItemsWithPrefetchPages(2).subscribe((result: any) => {
 
             this.items = this.items.concat(result.response.data);
 
@@ -31,11 +34,10 @@ export class MergeScanDemoComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.getItemsSubscription.unsubscribe();
+        this.itemsSubscription.unsubscribe();
     }
 
     getItems() {
-        const baseUrl = 'http://127.0.0.1:4001/list-data?page=';
         const fetchMoreEvents$ = fromEvent(this.moreButton.nativeElement, 'click');
 
         return fetchMoreEvents$.pipe(
@@ -50,6 +52,39 @@ export class MergeScanDemoComponent implements OnInit, OnDestroy {
                 1 // Maximum concurrency, 1 - to prevent race conditions
             )
         );
+    }
+
+    /**
+     *
+     * @param prefetchPages This method is only executed on init.
+     * The rest of the time, only created Observables are in action
+     */
+    getItemsWithPrefetchPages(prefetchPages: number) {
+
+        const initialData$ = this.getInitialData(prefetchPages);
+        // console.log(initialData$);
+
+        const fetchMoreEvents$ = fromEvent(this.moreButton.nativeElement, 'click');
+
+        const moreItems$ = fetchMoreEvents$.pipe(
+            mergeScan((prevAjaxResponse, next) => {
+                if ('nextIndex' in prevAjaxResponse.response) {
+                    return ajax.get(baseUrl + prevAjaxResponse.response.nextIndex)
+                }
+                return EMPTY;
+            },
+                { response: { nextIndex: prefetchPages } }, // Initial acc value
+                1 // Maximum concurrency, 1 - to prevent race conditions
+            )
+        );
+
+        return concat(initialData$, moreItems$);
+    }
+
+    getInitialData(prefetchPages: number) {
+        let counter = 0;
+        return defer(() => ajax.get(baseUrl + counter++))
+            .pipe(repeat(prefetchPages)); // The 'repeat' pipe allow to reproduce the request 'n' times
     }
 
 }
