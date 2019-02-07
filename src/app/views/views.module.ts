@@ -6,6 +6,7 @@ import { PriceSwitcherModule } from './price-switcher/price-switcher.module';
 import { ConcatMapDemoModule } from './concat-map-demo/concat-map-demo.module';
 import { MergeScanDemoModule } from './merge-scan-demo/merge-scan-demo.module';
 import { AutoCompleteModule } from './auto-complete/auto-complete.module';
+import { UnsubscriptionModule } from './unsubscription/unsubscription.module';
 
 @NgModule({
     declarations: [],
@@ -16,7 +17,8 @@ import { AutoCompleteModule } from './auto-complete/auto-complete.module';
         PriceSwitcherModule,
         ConcatMapDemoModule,
         MergeScanDemoModule,
-        AutoCompleteModule
+        AutoCompleteModule,
+        UnsubscriptionModule
     ]
 })
 export class ViewsModule { }

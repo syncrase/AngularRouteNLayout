@@ -69,7 +69,7 @@ export class MergeScanDemoComponent implements OnInit, OnDestroy {
         const moreItems$ = fetchMoreEvents$.pipe(
             mergeScan((prevAjaxResponse, next) => {
                 if ('nextIndex' in prevAjaxResponse.response) {
-                    return ajax.get(baseUrl + prevAjaxResponse.response.nextIndex)
+                    return ajax.get(baseUrl + prevAjaxResponse.response.nextIndex);
                 }
                 return EMPTY;
             },
